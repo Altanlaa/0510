@@ -11,30 +11,39 @@ import { Navbar,
       FooterLinkGroup,
       Carousel,
       Card,
-      Button  } from "flowbite-react";
+      Button,
+      DarkThemeToggle } from "flowbite-react";
 
 export default function Home() {
   return (
     <>
-    <Navbar fluid rounded>
-      <NavbarBrand as={Link} href="https://flowbite-react.com">
-        <img src="/next.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+    <div className="bg-cyan-400">{/*also-> bg-[#ff00ff] */}
+    <div className="container mx-auto">{/* mx-auto = 置中 */}
+    <Navbar fluid className="bg-cyan-400">
+
+      <NavbarBrand as={Link} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <img src="https://www.yuntech.edu.tw/images/website_png/Group_638.png" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
         {/* <img src="/vercel.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" /> */}
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
+        <span className="self-center whitespace-nowrap text-xl font-semibold text-red-400">Yuntech tail</span>
+        {/* font-semibold 半粗? dark:text-red-400 黑暗模式 */}
       </NavbarBrand>
       <NavbarToggle />
       <NavbarCollapse>
-        <NavbarLink href="#" active>
-          Home
+        <NavbarLink disabled href="#" className="text-purple-900 hover:text-green-900 hover:border-b-2 ">
+          <span className="px-4 py-2 hover:text-yellow-500 hover:border-yellow-500">point</span>
         </NavbarLink>
-        <NavbarLink as={Link} href="#">
-          About
+        <NavbarLink as={Link} href="#" className="text-purple-900">
+        <span className="px-2 py-2 hover:text-yellow-500 hover:border-yellow-500 hover:border-b-2">about us</span>
         </NavbarLink>
-        <NavbarLink href="#">Services</NavbarLink>
-        <NavbarLink href="#">Pricing</NavbarLink>
-        <NavbarLink href="#">Contact</NavbarLink>
+        <NavbarLink href="#" className="px-2 py-2 text-purple-900 ">
+          <span className="px-4 py-2 hover:text-yellow-500 hover:border-yellow-500 hover:border-b-2">transpotation</span>
+        </NavbarLink>
       </NavbarCollapse>
-    </Navbar>   
+      <DarkThemeToggle></DarkThemeToggle>
+    </Navbar>  
+    </div> 
+    </div>
+
     <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
       <Carousel slide={false}>
         <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
@@ -44,6 +53,9 @@ export default function Home() {
         <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />
       </Carousel>
     </div>
+
+    <div className="bg-white">
+    <div className="container mx-auto">
     <Card className="max-w-sm">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Noteworthy technology acquisitions 2021
@@ -62,6 +74,9 @@ export default function Home() {
         </svg>
       </Button>
     </Card>
+    </div>
+    </div>
+
       <Footer container>
         <FooterCopyright href="#" by="Flowbite™" year={2022} />
         <FooterLinkGroup>
