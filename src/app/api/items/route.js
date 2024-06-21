@@ -20,7 +20,7 @@ export async function GET(){
 async function getToken(){
     const authUrl = "https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token";
     const params = new URLSearchParams();
-    params.append('grant_type','client_credentails');
+    params.append('grant_type','client_credentials');
     params.append('client_id',process.env.TDX_CLIENT_ID);
     params.append('client_secret',process.env.TDX_CLIENT_SECRET);
 
@@ -35,6 +35,7 @@ async function getToken(){
 
         if(response.ok){
             const data=await response.json();
+            return data.access_token;
 
         }
         else{
@@ -45,7 +46,7 @@ async function getToken(){
     }
 }
 async function fetchData(token){
-    const apiUrl='https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/YunlinCounty';
+    const apiUrl='https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/YunlinCounty?%24top=30&%24';
     try {
         const response = await fetch(apiUrl,{
             method:'GET',
